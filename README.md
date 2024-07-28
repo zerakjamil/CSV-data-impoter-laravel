@@ -25,7 +25,11 @@ This project is designed to import user data from CSV files into a database usin
     ```bash
     php artisan serve
     ```
-
+5. Start the Queue
+   ```bash
+   php artisan queue:work
+   ```
+   
 ## Usage
 
 To import users from a CSV file, send a POST request to the `v1/import-users` endpoint. The application will read the CSV file, process it in chunks, and dispatch jobs to handle the import.
