@@ -24,17 +24,11 @@ class ProcessUserChunk implements ShouldQueue
     {
         try {
             foreach ($this->users as $user) {
-                User::create([
-                    'user_id' => $user['User Id'],
-                    'first_name' => $user['First Name'],
-                    'last_name' => $user['Last Name'],
-                    'sex' => $user['Sex'],
-                    'email' => $user['Email'],
-                    'phone' => $user['Phone'],
-                    'date_of_birth' => $user['Date of birth'],
-                    'job_title' => $user['Job Title'],
+                User::insert([
+                    $user
                 ]);
             }
+
         } catch (\Exception $e) {
             Log::error('Failed to process user chunk', [
                 'error' => $e->getMessage(),

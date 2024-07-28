@@ -1,4 +1,4 @@
-Index,User Id,First Name,Last Name,Sex,Email,Phone,Date of birth,Job Title
+Index,user_id,first_name,last_name,sex,email,phone,date_of_birth,job_title
 1,5f10e9D33fC5f2b,Sara,Mcguire,Female,tsharp@example.net,(971)643-6089x9160,1921-08-17,"Editor, commissioning"
 2,751cD1cbF77e005,Alisha,Hebert,Male,vincentgarrett@example.net,+1-114-355-1841x78347,1969-06-28,Broadcast engineer
 3,DcEFDB2D2e62bF9,Gwendolyn,Sheppard,Male,mercadojonathan@example.com,9017807728,1915-09-25,Industrial buyer

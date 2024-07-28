@@ -9,14 +9,13 @@ class UserController extends Controller
 {
     public function import(): JsonResponse
     {
-        $file = database_path('users-100.csv');
+        $file = database_path('users-10,000.csv');
         $data = array_map('str_getcsv', file($file));
 
         $headers = array_shift($data);
-        // Remove the 'Index' column
         array_shift($headers);
 
-        $chunks = array_chunk($data, 10);
+        $chunks = array_chunk($data, 1000);
 
         $batch = Bus::batch([])->dispatch();
 
@@ -32,16 +31,5 @@ class UserController extends Controller
         }
 
         return response()->json(['batch_id' => $batch->id]);
-    }
-
-    public function checkBatchStatus($batchId): JsonResponse
-    {
-        $batch = Bus::findBatch($batchId);
-
-        if ($batch->finished()) {
-            return response()->json(['status' => 'finished']);
-        }
-
-        return response()->json(['status' => 'not finished']);
     }
 }
